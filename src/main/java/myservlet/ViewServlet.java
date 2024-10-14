@@ -52,7 +52,7 @@ public class ViewServlet extends HttpServlet {
                     Data += "<td>" + rs.getString(4) + "</td>\n";
                     Data += "<td>" + rs.getString(5) + "</td>\n";
                     Data += "<td><a href=EditServlet?id=" + rs.getInt(1) + ">Edit</a></td>\n";
-                    Data += "<td><a href=DeleteServlet?id=" + rs.getInt(1) + " onclick=\"return confirm('Are you sure ?</a></td>\n";
+                    Data += "<td><a href=DeleteServlet?id=" + rs.getInt(1) + " onclick=\"return confirm('Are you sure ?')\">Delete</a></td>\n";
                     Data += "</tr>";
                 }
                 Data += "</table>";
