@@ -35,7 +35,7 @@ public class EditServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String method = request.getMethod();
             if (method.equalsIgnoreCase("get")) {
-
+                
                 String id = request.getParameter("id");
                 java.sql.Connection conn = null;
                 PreparedStatement ps = null;
@@ -46,6 +46,7 @@ public class EditServlet extends HttpServlet {
                     //ps.setInt(1,Integer.parseInt(id));
                     rs = ps.executeQuery();
                     if (rs.next()) {
+                        String country=rs.getString(5);
                         out.println("<!DOCTYPE html>");
                         out.println("<html>");
                         out.println("<head>");
@@ -71,10 +72,10 @@ public class EditServlet extends HttpServlet {
                                 + "                <tr>\n"
                                 + "                    <td>Country</td>\n"
                                 + "                    <td><select name=\"country\">\n"
-                                + "                            <option value=\"VietNam\">VietNam</option>\n"
-                                + "                            <option value=\"USA\">USA</option>\n"
-                                + "                            <option value=\"UK\">UK</option>\n"
-                                + "                            <option value=\"other\">other</option>\n"
+                                + "                            <option value=\"VietNam\" " +(country.equals("VietNam")?"selected":"")+">VietNam</option>\n"
+                                + "                            <option value=\"USA\" " +(country.equals("USA")?"selected":"")+">USA</option>\n"
+                                + "                            <option value=\"UK\" " +(country.equals("UK")?"selected":"")+">UK</option>\n"
+                                + "                            <option value=\"other\" " +(country.equals("other")?"selected":"")+">other</option>\n"
                                 + "                        </select></td>\n"
                                 + "                </tr>\n"
                                 + "                <tr>\n"
